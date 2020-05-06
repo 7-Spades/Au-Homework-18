@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI ||
-"mongodb://<dbuser>:<dbpassword>@ds133388.mlab.com:33388/heroku_9tc35d8g", {
+"mongodb://ed:Workdb/2@ds133388.mlab.com:33388/heroku_9tc35d8g", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
   useFindAndModify: false
