@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const compression = require("compression");
 
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.PORT || "mongodb://localhost/budget" ;
+
+mongoose.Promise = global.Promise;
 
 const app = express();
 
@@ -16,7 +17,8 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI ||
+"mongodb://<dbuser>:<dbpassword>@ds133388.mlab.com:33388/heroku_9tc35d8g", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
   useFindAndModify: false
